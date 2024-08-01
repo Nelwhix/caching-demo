@@ -1,0 +1,7 @@
+services:
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    container_name: treblleCache
+    ports:
+      - "6379:6379"
