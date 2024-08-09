@@ -4,20 +4,18 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
- */
 class PostFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
+        $content = $this->faker->text();
+        if ($this->faker->boolean()) {
+            $content .= $this->faker->url();
+        }
+
         return [
-            'content' => $this->faker->text(),
+            'content' => $content,
+            'likes' => random_int(0, 100),
         ];
     }
 }

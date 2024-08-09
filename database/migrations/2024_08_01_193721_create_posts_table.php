@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->text('content');
+            $table->integer('likes')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
